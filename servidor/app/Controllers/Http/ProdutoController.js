@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Produto = use('App/Models/Produto');
+
 /**
  * Resourceful controller for interacting with produtos
  */
@@ -18,6 +20,8 @@ class ProdutoController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
+    const prods = await Produto.all();
+    return response.json({ data: prods});
   }
 
   /**
@@ -41,6 +45,9 @@ class ProdutoController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    const input = request.all();
+    const prod = await Produto.create(input);
+    return response.json({ data: prod });
   }
 
   /**
@@ -53,6 +60,12 @@ class ProdutoController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
+    const prod = await Produto.find(params.id);
+    if(!prod){
+      return response.json({data: null, msg: "Nenhuma informação encontrada."});
+    }
+
+    return response.json({data: prod});
   }
 
   /**
@@ -76,6 +89,16 @@ class ProdutoController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    const input = request.all();
+    const prod = await Produto.find(params.id);
+
+    if(!prod){
+      return response.json({data: null, msg: "Nenhuma Informação encontrada.."});
+    }
+
+    prod.merge(input);
+    await prod.save();
+    return response.json({data: prod});
   }
 
   /**
@@ -87,6 +110,14 @@ class ProdutoController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    const prod = await Produto.find(params.id);
+    
+    if(!prod){
+      return response.json({data:null, msg: "Nenhuma informação encontrada"});
+    }
+
+    prod.delete();
+    return response.json({data: prod});
   }
 }
 
