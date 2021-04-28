@@ -7,7 +7,7 @@ import { pathToFileURL } from 'node:url';
     providedIn: 'root'
 })
 
-export class AppServiceService {
+export class ApiServiceService {
     constructor(private http: HttpClient){}
 
     public get(path:string, httpParam:HttpParams = new HttpParams()):any{
