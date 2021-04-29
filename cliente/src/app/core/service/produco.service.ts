@@ -11,7 +11,7 @@ export class ProdutoService {
 
     constructor(private api:ApiServiceService) { }
 
-    public index():any{return this.api.get('/produto')}
+    public index():any{return this.api.get('/produtos')}
 
     public show(params:any):any{return this.api.get('/produtos/',params);}
 

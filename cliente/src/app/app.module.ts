@@ -9,6 +9,7 @@ import { ProdutoListComponent } from './componentes/protudos/produto-list/produt
 import { ProdutoCreateComponent } from './componentes/protudos/produto-create/produto-create.component';
 import { ProdutoShowComponent } from './componentes/protudos/produto-show/produto-show.component';
 import { ProdutoDeleteComponent } from './componentes/protudos/produto-delete/produto-delete.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProdutoDeleteComponent } from './componentes/protudos/produto-delete/pr
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

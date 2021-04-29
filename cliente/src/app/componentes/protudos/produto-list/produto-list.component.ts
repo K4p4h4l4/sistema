@@ -15,7 +15,10 @@ export class ProdutoListComponent implements OnInit {
   ngOnInit(): void {
     this.prodService
     .index()
-    .subscribe((arg:any) => {this.prods = arg.data})
+    .subscribe((arg:any) => {
+      console.log(arg.data)
+      this.prods = arg.data
+    })
   }
 
 }

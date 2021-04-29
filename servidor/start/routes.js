@@ -22,7 +22,7 @@ Route.get('/', () => {
 
 Route.group(() => {
   Route.get('produtos', 'ProdutoController.index');
-  Route.post('produto', 'ProdutoController.store');
+  Route.post('produtos', 'ProdutoController.store');
   Route.get('produtos/:id', 'ProdutoController.show');
   Route.put('produtos/:id', 'ProdutoController.update');
   Route.delete('produtos/:id', 'ProdutoController.destroy');
