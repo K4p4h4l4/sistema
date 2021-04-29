@@ -1,5 +1,5 @@
 export class Produto {
-    nome: string = null;
-    preco: number = null;
-    qtd: string = null;
+    nome: string = '';
+    preco: number = 0;
+    qtd: string = '';
 }
