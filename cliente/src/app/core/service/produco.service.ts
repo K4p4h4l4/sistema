@@ -15,7 +15,9 @@ export class ProdutoService {
 
     public show(params:any):any{return this.api.get('/produtos/',params);}
 
-    public post(produto:any):any{return this.api.get('/produtos/',produto);}
+    public post(produto:any):any{return this.api.post('/produtos/',produto);}
 
-    public put(produto:any, params:any):any{return this.api.get('/produtos/'+params,produto);}
+    public put(produto:any, params:any):any{return this.api.put('/produtos/'+params,produto);}
+
+    public delete( params:any):any{return this.api.delete('/produtos/'+params);}
 }
